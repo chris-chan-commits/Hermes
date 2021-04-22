@@ -79,6 +79,6 @@ Pretty simple, actually. Firstly, you will want to create a class that inherits 
 ### Adding the script
 	m_Scene->AddEntity(Entity::CreateEntity("entity", m_Camera, CreateQuad(), MAIN_SHADER, new Texture(true, "dvdlogo.png")), new Mover());
 ### How do I change the entities texture later on?
-Thats also really simple, in either your entity script or your main cpp file, do entity->ChangeTexture(TheTexture). The Texture can be initialized by the same way we did before.
+Thats also really simple, in either your entity script or the derived application, do entity->ChangeTexture(TheTexture). The Texture can be initialized by the same way we did before.
 ###
 	m_Entity->ChangeTexture(new Texture("yes.bmp"));
