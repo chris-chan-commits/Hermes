@@ -65,7 +65,7 @@ Pretty simple, actually. Firstly, you will want to create a class that inherits 
 ### The class
 	class Mover : public Script
 	{
-		public:
+	public:
 		virtual void Start() override
 		{
 	
