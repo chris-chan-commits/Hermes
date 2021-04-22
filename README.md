@@ -60,5 +60,6 @@ Then, in the Start function, you use Entity::CreateEntity. This takes in multipl
 ###
 	m_Camera = Camera::InitializeCameraOrthographic(-1.5f, 1.5f, -2.0f, 2.0f);
 Now, lets go back to that Entity::CreateEntity function. Now that we passed in a name, and the camera, now it either takes a mesh or some vertices. Lets pass in a default mesh. Pass in CreateQuad(), and that will give the mesh to the CreateEntity function. Now we give it the shader, so lets give it the default shader by typing in MAIN_SHADER. And finally a texture. To initialize a Texture, you call the constructor with a couple parameters. Firstly, specify if its a 2D texture or a 3D texture. Type true for this value, because 3D textures are not implemented yet. And then the second parameter is the filepath for the texture. And finally, do scene->AddEntity(entity), and new Script(), because we will not implement a script for this entity. Tada! There is now a quad!
-###
+### How do I add a script to an entity?
+Pretty simple, actually. Firstly, you will want to create a class that inherits from Script. Then you want to override virtual functions, Start and Update. And then, in the place where you did scene->AddEntity, you actually want to pass a new instance of your script. and there you go, you have a scripted entity.
 	
