@@ -82,3 +82,9 @@ Pretty simple, actually. Firstly, you will want to create a class that inherits 
 Thats also really simple, in either your entity script or the derived application, do entity->ChangeTexture(TheTexture). The Texture can be initialized by the same way we did before.
 ###
 	m_Entity->ChangeTexture(new Texture("yes.bmp"));
+### How do I translate an entity?
+All you need to do to translate entities, is entity->translate(glm::vec3(x,y,z));
+###
+	m_Entity->Translate(glm::vec3(0, 1 * elapsedTime, 0);
+This can also be done in the script class
+###
