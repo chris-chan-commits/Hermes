@@ -88,4 +88,29 @@ All you need to do to translate entities, is entity->translate(glm::vec3(x,y,z))
 ###
 	m_Entity->Translate(glm::vec3(0, 1 * elapsedTime, 0);
 This can also be done in the script class
-###
+# Classes and Functions
+### Window Properties
+	struct BOLT_API WindowProperties
+	{
+		int width, height;
+		const wchar_t* title;
+		bool clearColor;
+		float* color;
+		bool vsync;
+	};
+width, and height is the size of the window.
+
+title, is the title of the window
+
+clearColor must be true, or false, true if you want to clear a color to the screen
+
+color must be set if clearColor is set to true
+
+vsync must be true if you want vsync, and false if you dont
+
+### Application::Initialize(const WindowProperties& windowProperties);
+windowProperties MUST be a valid structure.
+
+This function initializes Application
+### 
+
