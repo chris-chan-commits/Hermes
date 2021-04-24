@@ -1,5 +1,6 @@
 
 # Bolt
+![image](https://user-images.githubusercontent.com/48699812/115972373-c515f400-a502-11eb-9ff9-c00e24a01746.png)
 
 What is bolt? Bolt is a Game Engine that is currently in development, and includes a completed 2D renderer and an audio system. The audio system is currently in development, however you can still use it, and it produces, mediocore sounds.
 
