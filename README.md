@@ -1,4 +1,3 @@
-![image](https://user-images.githubusercontent.com/48699812/115972373-c515f400-a502-11eb-9ff9-c00e24a01746.png)
 
 # Bolt
 
