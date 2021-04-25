@@ -1,5 +1,5 @@
 
-https://travis-ci.org/chris-chan-commits/Bolt.svg?branch=main
+![image](https://travis-ci.org/chris-chan-commits/Bolt.svg?branch=main)
 
 # Bolt
 
