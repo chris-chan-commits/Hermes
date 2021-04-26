@@ -147,3 +147,7 @@ windowProperties MUST be a valid structure.
 This function initializes Application
 ### 
 
+
+
+# Currently doing
+Currently revamping the shader class
