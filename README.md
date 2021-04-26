@@ -21,6 +21,7 @@ In order to correctly use Bolt, you must have 2 things. Firstly, you must have a
 	#include "../Bolt/src/Bolt.h"
 
 	using namespace bolt;
+	using namespace rendering;
 
 	class Game : public Application
 	{
