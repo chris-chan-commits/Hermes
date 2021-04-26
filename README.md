@@ -1,6 +1,6 @@
 # Disclaimer!
 Using pre releases will not be optimized, may be unstable, and also may have less features! If you want more stability, features, and optimization, wait for the full releases.
-Also, documentation may not be up to date with the build releases! If you have any questions, email chrischancommits@gmail.com.
+Also, documentation may not be up to date with the pre-releases! If you have any questions, email chrischancommits@gmail.com.
 
 # Bolt
 
