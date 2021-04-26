@@ -114,7 +114,7 @@ Well, that is simple! All you have to do, is either in your script class or your
 		m_PlayerMovementAnimation->UpdateAnimation();
 		if (m_Application->GetKeyPressed('F'))
 		{
-			m_PlayerMovementAnimation->Play(false, 1.0f);
+			m_PlayerMovementAnimation->Play(false, false, false, 1.0f);
 		}
 	}
 # Classes and Functions
