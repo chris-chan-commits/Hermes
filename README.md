@@ -90,6 +90,30 @@ All you need to do to translate entities, is entity->translate(glm::vec3(x,y,z))
 This can also be done in the script class
 ### How about animations in the 2DRenderer?
 Well, that is simple! All you have to do, is either in your script class or your application class, create a new Animation2D instance, give it a list of textures, and in your update function, do animation->UpdateAnimation(). And whenever you want to play an animation, do animation->Play(isLooped, delay), and when you want to stop the animation, do animation->Stop(). If the animation is not looped, then you dont need to do animation->Stop().
+###
+	class PlayerMovement : public Script
+###
+
+	virtual void Start() override
+	{
+		m_PlayerMovementAnimation = new Animation2D
+		(
+			m_Entity,
+			{
+				{new Texture(true, "crap.png")},
+				{new Texture(true, "crap2.png")}
+			}
+		);
+	}
+
+	virtual void Update() override
+	{
+		m_PlayerMovementAnimation->UpdateAnimation();
+		if (m_Application->GetKeyPressed('F'))
+		{
+			m_PlayerMovementAnimation->Play(false, 1.0f);
+		}
+	}
 # Classes and Functions
 ### Window Properties
 	struct BOLT_API WindowProperties
