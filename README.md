@@ -1,3 +1,6 @@
+# Disclaimer!
+Using pre releases will not be optimized, may be unstable, and also may have less features! If you want more stability, features, and optimization, wait for the full releases.
+
 # Bolt
 
 ![image](https://user-images.githubusercontent.com/48699812/115972373-c515f400-a502-11eb-9ff9-c00e24a01746.png)
