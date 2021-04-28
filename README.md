@@ -150,4 +150,5 @@ This function initializes Application
 
 
 # Currently doing
-Currently working on a vulkan renderer!
+Currently revamping shader class and
+currently working on a vulkan renderer!
