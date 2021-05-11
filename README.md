@@ -15,4 +15,48 @@ Visually state/show that any application/game was made by Blind Eye
 
 # Documentation
 ### Usage
-Revamped the entire project so i just deleted all of my documentation lol
+First, you must create a "CreateApplication" function that returns your application, and then you must create a derived Application, and then a layer, to then push into the application. For example:
+#
+        class Test : public Application
+        {
+        public:
+	        Test()
+	        {
+		        AttachLayer(new ApplicationLayer());
+	        }
+        };
+
+    Application* CreateApplication()
+    {
+	    return new Test();
+    }
+And the layer will look like this:
+#
+    class ApplicationLayer : public Layer
+    {
+    ApplicationLayer():
+		    Layer("Application Layer")
+	    {
+	    }
+      virtual void OnAttach() override
+	    {
+      }
+     virtual void OnDetach() override
+	    {
+	    }
+      virtual void OnUpdate() override
+	    {
+      }
+    } 
+### How do I initialize the renderer?
+    Renderer::Initialize(API);
+The api can be only OpenGL because I have not made any other renderers.
+This is recommended to be called in OnAttach()
+### How do I create a mesh?
+You need to create a camera, and then initialize the mesh and then if you want, bind a texture
+#
+    m_Camera = Camera::CreateOrthographicCamera(-1, 1, -1, 1);
+
+		m_Mesh = DefaultQuad();
+		m_Mesh->BindTexture(Texture::CreateTexture("brik.png"));
+And to render it, call Renderer::BeginRender(camera); and then Renderer::Render(mesh);
