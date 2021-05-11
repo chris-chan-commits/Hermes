@@ -64,3 +64,8 @@ Create an engine.ini file, that contains the width, height, and title in this fo
 	WIDTH:1280
 	HEIGHT:720
 	TITLE:MY TEST
+
+
+
+# Credits
+https://github.com/Bly7/OBJ-Loader
