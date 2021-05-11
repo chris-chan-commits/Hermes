@@ -58,3 +58,9 @@ You need to create a camera, and then initialize the mesh and then if you want, 
 		m_Mesh = DefaultQuad();
 		m_Mesh->BindTexture(Texture::CreateTexture("brik.png"));
 And to render it, call Renderer::BeginRender(camera); and then Renderer::Render(mesh);
+### How do I customize the width, height, and title?
+Create an engine.ini file, that contains the width, height, and title in this format...
+#
+	WIDTH:1280
+	HEIGHT:720
+	TITLE:MY TEST
