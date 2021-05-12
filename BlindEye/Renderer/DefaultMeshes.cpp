@@ -31,4 +31,11 @@ namespace beye
 
 		return mesh;
 	}
+	Ref<Mesh>BLIND_EYE_API Default3DObject(const std::string& objFilename, const std::string& textureFileName)
+	{
+		std::vector<float> texCoords;
+		Ref<Mesh> mesh = Mesh::CreateMesh(objFilename, Shader::CreateShader("main_shader_3d.shader"), texCoords);
+		mesh->BindTexture(Texture::CreateTexture(textureFileName), texCoords);
+		return mesh;
+	}
 }

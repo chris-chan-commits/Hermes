@@ -54,7 +54,7 @@ namespace beye
 		strcpy(target, buffer);
 	}
 
-	static void readObj(const std::string& filename, std::vector<float>& vertices, std::vector<float>& texCoords, std::vector<float>& normals, std::vector<uint32_t>& indices)
+	static void readObj(const std::string& filename, std::vector<float>& vertices, std::vector<float>&texCoords, std::vector<float>& normals, std::vector<uint32_t>& indices)
 	{
 		std::ifstream file(filename, std::ios::in);
 		if (!file)
@@ -86,9 +86,10 @@ namespace beye
 				glm::vec3 vt;
 				s >> vt.x;
 				s >> vt.y;
-				s >> vt.z;
+				//s >> vt.z;
 				tempTexCoords.push_back(vt.x);
 				tempTexCoords.push_back(vt.y);
+				//tempTexCoords.push_back(vt.z);
 			}
 			else if (line.substr(0, 2) == "f ")
 			{
@@ -114,16 +115,18 @@ namespace beye
 				a--;
 				b--;
 				c--;
+				
 				d--;
 				e--;
 				f--;
+				
 				g--;
 				h--;
 				i--;
 
 				texCoords.push_back(tempTexCoords[b]);
 				texCoords.push_back(tempTexCoords[e]);
-				texCoords.push_back(tempTexCoords[h]);
+				//texCoords.push_back(tempTexCoords[h]);
 
 				indices.push_back(a);
 				indices.push_back(d);
@@ -137,8 +140,9 @@ namespace beye
 		std::vector<float> vertices;
 		std::vector<float> normals;
 		std::vector<uint32_t> indices;
-		readObj(objFilename, vertices, texCoords, normals, indices);
 
+		readObj(objFilename, vertices, texCoords, normals, indices);
+		
 
 		Ref<Mesh> mesh = CreateRef<Mesh>();
 		mesh->shader = shader;

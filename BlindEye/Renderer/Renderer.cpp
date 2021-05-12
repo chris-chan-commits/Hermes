@@ -33,6 +33,7 @@ namespace beye
 		{
 		case API::OPENGL:
 			{
+				glEnable(GL_MULTISAMPLE);
 				if (glewInit() != GLEW_OK)
 				{
 					BE_CORE_ERROR("Failed to initialize renderer! Reason: GLEW failed to initialize!");
@@ -71,13 +72,17 @@ namespace beye
 	}
 	void Renderer::Render(const Ref<Mesh>& mesh)
 	{
-		mesh->shader->SetMat4("u_MVP", s_Camera->projection * s_Camera->view * mesh->model);
+		glm::mat4 mvp = s_Camera->projection;
+		mvp *= s_Camera->view;
+		mvp *= mesh->model;
+		mesh->shader->SetMat4("u_MVP", mvp);
 		mesh->shader->Bind();
 		switch (s_API)
 		{
 		case API::OPENGL:
 			{
 				glEnable(GL_DEPTH_TEST);
+				glEnable(GL_BLEND);
 				mesh->vao->Bind();
 				if (mesh->usesTexture)
 				{
@@ -105,6 +110,8 @@ namespace beye
 					mesh->texture->Unbind();
 				}
 				mesh->vao->Unbind();
+				glDisable(GL_DEPTH_TEST);
+				glDisable(GL_BLEND);
 			}break;
 		default:
 			{
@@ -137,7 +144,7 @@ namespace beye
 		{
 		case API::OPENGL:
 			{
-				glCullFace(GL_FRONT_AND_BACK);
+				glEnable(GL_CULL_FACE);
 			}break;
 		default:
 			{
@@ -153,7 +160,7 @@ namespace beye
 		{
 		case API::OPENGL:
 			{
-				glCullFace(GL_BACK);
+				glDisable(GL_CULL_FACE);
 			}break;
 		default:
 			{
