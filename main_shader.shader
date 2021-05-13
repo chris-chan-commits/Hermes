@@ -1,27 +1,20 @@
 #version 330 core
-layout(location = 0) in vec3 a_Pos;
-layout(location = 1) in vec2 a_TexCoord;
-
-uniform mat4 a_Proj;
-uniform mat4 a_Model;
-uniform mat4 a_View;
-out vec2 TexCoord;
+layout(location = 0) in vec3 aPos; // the position variable has attribute position 0
+uniform mat4 u_Model;
+uniform mat4 u_View;
+uniform mat4 u_Proj;
 
 void main()
 {
-	gl_Position = a_Proj * a_View * a_Model * vec4(a_Pos.x, a_Pos.y, a_Pos.z, 1.0f);
-	TexCoord = a_TexCoord;
+    gl_Position = u_Proj * u_View * u_Model * vec4(aPos, 1.0); // see how we directly give a vec3 to vec4's constructor
 }
 
-..SHADER
-
+.SplitShader
 #version 330 core
-out vec4 a_FragColor;
-in vec2 TexCoord;
-
-uniform sampler2D tex;
+out vec4 FragColor;
+uniform vec3 u_Color;
 
 void main()
 {
-	a_FragColor = texture(tex, TexCoord);
+	FragColor = vec4(u_Color, 1.0);
 }
