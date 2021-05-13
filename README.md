@@ -70,3 +70,6 @@ Create an engine.ini file, that contains the width, height, and title in this fo
 
 # Credits
 GLFW, GLEW, GLM
+
+# Currently
+Currently working on material system.
