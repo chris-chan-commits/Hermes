@@ -17,7 +17,7 @@ namespace beye
 		virtual ~Window() {}
 
 		virtual bool Closing() = 0 { return false; }
-		virtual void Initialize(int width, int height, const std::string& title) = 0 {}
+		virtual void Initialize(int width, int height, const std::string& title, bool vsync) = 0 {}
 		virtual void Poll() = 0 {}
 	};
 
@@ -26,7 +26,7 @@ namespace beye
 	{
 	public:
 		virtual bool Closing() override;
-		virtual void Initialize(int width, int height, const std::string& title) override;
+		virtual void Initialize(int width, int height, const std::string& title, bool vsync) override;
 		virtual void Poll() override;
 
 		GLFWwindow* GetWindowHandle() { return m_WindowHandle; }

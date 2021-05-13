@@ -11,6 +11,8 @@ namespace beye
 		glm::mat4 projection;
 		glm::mat4 view;
 
+		static void SetActive(Ref<Camera>& camera);
+		static Ref<Camera> GetActive();
 		void Translate(const glm::vec3& translation);
 
 		static Ref<Camera> CreateOrthographicCamera(float left, float right, float bottom, float top);

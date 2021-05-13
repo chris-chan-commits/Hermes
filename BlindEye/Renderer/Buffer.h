@@ -15,7 +15,7 @@ namespace beye
 	public:
 		virtual ~VertexBuffer() = default;
 
-		static Ref<VertexBuffer> CreateVertexBuffer(float* vertices, uint32_t size);
+		static Ref<VertexBuffer> CreateVertexBuffer(float* vertices, GLsizeiptr size);
 
 		virtual void Bind() = 0;
 		virtual void Unbind() = 0;

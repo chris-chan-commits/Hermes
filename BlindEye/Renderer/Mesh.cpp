@@ -8,6 +8,8 @@
 
 namespace beye
 {
+	static int mesh_id = 0;
+
 	static char* removeWhiteSpaces(char* str)
 	{
 		int i = 0, j = 0;
@@ -65,6 +67,7 @@ namespace beye
 		}
 
 		std::vector<float> tempTexCoords;
+		std::vector<float> tempNormals;
 
 		std::string line;
 		while (std::getline(file, line))
@@ -90,6 +93,18 @@ namespace beye
 				tempTexCoords.push_back(vt.x);
 				tempTexCoords.push_back(vt.y);
 				//tempTexCoords.push_back(vt.z);
+			}
+			else if (line.substr(0, 3) == "vn ")
+			{
+				std::istringstream s(line.substr(3));
+				glm::vec3 vn;
+				s >> vn.x;
+				s >> vn.y;
+				s >> vn.z;
+
+				tempNormals.push_back(vn.x);
+				tempNormals.push_back(vn.y);
+				tempNormals.push_back(vn.z);
 			}
 			else if (line.substr(0, 2) == "f ")
 			{
@@ -128,6 +143,10 @@ namespace beye
 				texCoords.push_back(tempTexCoords[e]);
 				//texCoords.push_back(tempTexCoords[h]);
 
+				normals.push_back(tempNormals[c]);
+				normals.push_back(tempNormals[f]);
+				normals.push_back(tempNormals[i]);
+
 				indices.push_back(a);
 				indices.push_back(d);
 				indices.push_back(g);
@@ -135,159 +154,70 @@ namespace beye
 		}
 	}
 
-	Ref<Mesh> Mesh::CreateMesh(const std::string& objFilename, Ref<Shader> shader, std::vector<float>& texCoords)
+	Ref<Mesh> Mesh::Create2DMesh(const SPRITE& sprite, const Mat2D& mat)
 	{
-		std::vector<float> vertices;
-		std::vector<float> normals;
-		std::vector<uint32_t> indices;
-
-		readObj(objFilename, vertices, texCoords, normals, indices);
-		
-
+		mesh_id++;
 		Ref<Mesh> mesh = CreateRef<Mesh>();
-		mesh->shader = shader;
-		mesh->model = glm::mat4(1.0f);
-		float* data = (float*)vertices.data();
-		size_t size = vertices.size() * sizeof(size_t);
-
-		uint32_t* ind = (uint32_t*)indices.data();
-		size_t indsiz = indices.size() * sizeof(size_t);
-
-		Ref<VertexArray> vArray = VertexArray::CreateVertexArray();
-		Ref<VertexBuffer> vBuf = VertexBuffer::CreateVertexBuffer(data, size);
-		Ref<IndexBuffer> iBuf = IndexBuffer::CreateIndexBuffer(ind, indsiz);
-
-		// Initialize Layout
-		BufferLayout layout = {};
-		layout.index = 0;
-		layout.size = 3;
-		vBuf->SetLayout(layout);
-
-
-		vArray->AddVertexBuffer(vBuf);
-
-		vArray->BindIndexBuffer(iBuf);
-
-		mesh->vao = vArray;
-		mesh->points = vertices.size() / 3;
-
-		return mesh;
-	}
-	Ref<Mesh> Mesh::CreateMesh(const std::vector<float> vertices, Ref<Shader> shader)
-	{
-		Ref<Mesh> mesh = CreateRef<Mesh>();
-		mesh->shader = shader;
-		mesh->model = glm::mat4(1.0f);
-		float* data = (float*)vertices.data();
-		size_t size = vertices.size() * sizeof(size_t);
-
-		Ref<VertexArray> vArray = VertexArray::CreateVertexArray();
-		Ref<VertexBuffer> vBuf = VertexBuffer::CreateVertexBuffer(data, size);
-
-		// Initialize Layout
-		BufferLayout layout = {};
-		layout.index = 0;
-		layout.size = 3;
-		vBuf->SetLayout(layout);
-
-
-		vArray->AddVertexBuffer(vBuf);
-
-		mesh->vao = vArray;
-		mesh->points = vertices.size() / 3;
-
-		return mesh;
-
-	}
-	Ref<Mesh> Mesh::CreateMesh(const std::vector<float> vertices, const std::vector<uint32_t> indices, Ref<Shader> shader)
-	{
-		Ref<Mesh> mesh = CreateRef<Mesh>();
-		mesh->shader = shader;
-		mesh->model = glm::mat4(1.0f);
-		float* data = (float*)vertices.data();
-		size_t size = vertices.size() * sizeof(size_t);
-
-		uint32_t* ind = (uint32_t*)indices.data();
-		size_t indsiz = indices.size() * sizeof(size_t);
-
-		Ref<VertexArray> vArray = VertexArray::CreateVertexArray();
-		Ref<VertexBuffer> vBuf = VertexBuffer::CreateVertexBuffer(data, size);
-		Ref<IndexBuffer> iBuf = IndexBuffer::CreateIndexBuffer(ind, indsiz);
-
-		// Initialize Layout
-		BufferLayout layout = {};
-		layout.index = 0;
-		layout.size = 3;
-		vBuf->SetLayout(layout);
-
-
-		vArray->AddVertexBuffer(vBuf);
-
-		vArray->BindIndexBuffer(iBuf);
-
-		mesh->vao = vArray;
-		mesh->points = vertices.size() / 3;
-
-		return mesh;
-	}
-	void Mesh::BindTextureCoordinates(const std::vector<float> texCoords)
-	{
-		switch (Renderer::GetAPI())
+		float vertices[4 * 3] =
 		{
-		case API::OPENGL:
-			{
-				float* data = (float*)texCoords.data();
-				size_t size = texCoords.size() * sizeof(size_t);
-				Ref<VertexBuffer> tBuf = VertexBuffer::CreateVertexBuffer(data, size);
+	 0.5f,  0.5f, 0.0f,  // top right
+	 0.5f, -0.5f, 0.0f,  // bottom right
+	-0.5f, -0.5f, 0.0f,  // bottom left
+	-0.5f,  0.5f, 0.0f   // top left
+		};
 
-				BufferLayout layout = {};
-				layout.index = 1;
-				layout.size = 2;
-				tBuf->SetLayout(layout);
-
-				vao->AddVertexBuffer(tBuf);
-			}break;
-		default:
-			{
-				BE_CORE_ERROR("Failed to bind texture coordinates! Reason: Only OpenGL is supported!");
-				BE_CORE_PAUSE();
-				std::exit(-1);
-				return;
-			}break;
-		}
-	}
-	void Mesh::BindTexture(Ref<Texture> texture, const std::vector<float> texCoords)
-	{
-		this->texture = texture;
-		usesTexture = true;
-
-		switch (Renderer::GetAPI())
+		uint32_t indices[6] =
 		{
-		case API::OPENGL:
-			{
-				float* data = (float*)texCoords.data();
-				size_t size = texCoords.size() * sizeof(size_t);
-				Ref<VertexBuffer> tBuf = VertexBuffer::CreateVertexBuffer(data, size);
+	0, 1, 3,   // first triangle
+	1, 2, 3    // second triangle
+		};
 
-				BufferLayout layout = {};
-				layout.index = 1;
-				layout.size = 2;
-				tBuf->SetLayout(layout);
+		Ref<VertexArray> vao = VertexArray::CreateVertexArray();
+		Ref<VertexBuffer> vbo = VertexBuffer::CreateVertexBuffer(vertices, 12 * sizeof(size_t));
+		Ref<IndexBuffer> ibo = IndexBuffer::CreateIndexBuffer(indices, 6 * sizeof(size_t));
 
-				vao->AddVertexBuffer(tBuf);
-			}break;
-		default:
-			{
-				BE_CORE_ERROR("Failed to bind texture! Reason: Only OpenGL is supported!");
-				BE_CORE_PAUSE();
-				std::exit(-1);
-				return;
-			}break;
-		}
+		BufferLayout layout = {};
+		layout.index = 0;
+		layout.size = 3;
+		vbo->SetLayout(layout);
+
+		vao->AddVertexBuffer(vbo);
+		vao->BindIndexBuffer(ibo);
+
+		mesh->vao = vao;
+		mesh->shader = Shader::CreateShader("main_shader_2d.shader");
+		mesh->shader->SetFloat3(mat.color.name, mat.color.value);
+		mesh->transformation = glm::mat4(1.0f);
+		mesh->meshID = mesh_id;
+
+		return mesh;
 	}
-	void Mesh::BindTexture(Ref<Texture> texture)
+
+	Ref<Mesh> Mesh::Create3DMesh()
 	{
-		this->usesTexture = true;
-		this->texture = texture;
+		mesh_id++;
+
+		return nullptr;
+	}
+
+	void Mesh::BindMaterial(const Mat2D& mat)
+	{
+		shader->SetFloat3(mat.color.name, mat.color.value);
+	}
+
+	/*MESH*/
+	void Mesh::Render()
+	{
+		glm::mat4 proj = Camera::GetActive()->projection;
+		glm::mat4 view = Camera::GetActive()->view;
+
+		shader->SetMat4("u_Proj", Camera::GetActive()->projection);
+		shader->SetMat4("u_View", Camera::GetActive()->view);
+		shader->SetMat4("u_Model", transformation);
+
+		shader->Bind();
+		Renderer::BeginRender();
+		Renderer::Render(vao);
+		shader->Unbind();
 	}
 }

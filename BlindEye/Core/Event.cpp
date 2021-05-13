@@ -2,6 +2,10 @@
 
 #include "Renderer/Renderer.h"
 
+#include <chrono>
+#include "Time/Time.h"
+namespace chrono = std::chrono;
+
 namespace beye
 {
 	Event::Event(const std::string& eventName) :
@@ -35,4 +39,30 @@ namespace beye
 	{
 	}
 	#endif
+	TimeUpdateEvent::TimeUpdateEvent():
+		Event("Time Update Event")
+	{
+	}
+	TimeUpdateEvent::~TimeUpdateEvent()
+	{
+	}
+
+	static chrono::system_clock::time_point tp1;
+	static chrono::system_clock::time_point tp2;
+
+	void TimeUpdateEvent::OnAttach()
+	{
+		tp1 = chrono::system_clock::now();
+		tp2 = chrono::system_clock::now();
+	}
+	void TimeUpdateEvent::OnDetach()
+	{
+	}
+	void TimeUpdateEvent::OnUpdate()
+	{
+		tp2 = chrono::system_clock::now();
+		chrono::duration<float> elapsedT = tp2 - tp1;
+		tp1 = tp2;
+		Time::deltaTime = elapsedT.count();
+	}
 }

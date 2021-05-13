@@ -7,6 +7,15 @@
 
 namespace beye
 {
+	Ref<Camera> active = NULL;
+	void Camera::SetActive(Ref<Camera>& camera)
+	{
+		active = camera;
+	}
+	Ref<Camera> Camera::GetActive()
+	{
+		return active;
+	}
 	void Camera::Translate(const glm::vec3& translation)
 	{
 		view = glm::translate(view, translation);

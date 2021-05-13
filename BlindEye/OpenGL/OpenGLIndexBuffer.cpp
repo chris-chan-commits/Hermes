@@ -5,11 +5,11 @@
 
 namespace beye
 {
-	OGLIndexBuffer::OGLIndexBuffer(uint32_t* indices, uint32_t size)
+	OGLIndexBuffer::OGLIndexBuffer(uint32_t* indices, GLsizeiptr size)
 	{
 		glGenBuffers(1, &m_ID);
 
-		m_Count = size / sizeof(size_t);
+		m_Count = size / sizeof(GLsizeiptr);
 
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ID);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, size, indices, GL_STATIC_DRAW);

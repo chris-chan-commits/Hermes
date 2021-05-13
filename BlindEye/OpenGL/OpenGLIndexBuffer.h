@@ -8,7 +8,7 @@ namespace beye
 	class BLIND_EYE_API OGLIndexBuffer : public IndexBuffer
 	{
 	public:
-		OGLIndexBuffer(uint32_t* indices, uint32_t size);
+		OGLIndexBuffer(uint32_t* indices, GLsizeiptr size);
 		virtual ~OGLIndexBuffer();
 
 		virtual uint32_t GetCount() override;

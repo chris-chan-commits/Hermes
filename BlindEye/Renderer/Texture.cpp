@@ -11,7 +11,7 @@ namespace beye
 		{
 		case API::OPENGL:
 			{
-				glEnable(GL_BLEND_SRC);
+				glEnable(GL_BLEND);
 				glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 				Ref<OGLTexture> tex = CreateRef<OGLTexture, const std::string&>(filename);
 				

@@ -1,0 +1,11 @@
+// THIS IS PSUEDO CODE!!!
+// THIS ISNT REAL CODE
+// THIS IS FOR VISUALAZATION PURPOSES
+
+/*GAME INITIALIZATION STUFF*/
+
+mesh = create_mesh(quad, "material.mat")
+
+
+loop
+	mesh.render();

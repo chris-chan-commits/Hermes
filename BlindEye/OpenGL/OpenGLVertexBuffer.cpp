@@ -1,7 +1,7 @@
 #include "OpenGLVertexBuffer.h"
 namespace beye
 {
-	OGLVertexBuffer::OGLVertexBuffer(float* vertices, uint32_t size)
+	OGLVertexBuffer::OGLVertexBuffer(float* vertices, GLsizeiptr size)
 	{
 		glGenBuffers(1, &m_ID);
 		

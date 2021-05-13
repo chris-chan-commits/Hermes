@@ -12,7 +12,7 @@ namespace beye
 	class BLIND_EYE_API OGLVertexBuffer : public VertexBuffer
 	{
 	public:
-		OGLVertexBuffer(float* vertices, uint32_t size);
+		OGLVertexBuffer(float* vertices, GLsizeiptr size);
 		virtual ~OGLVertexBuffer();
 
 		virtual void Bind() override;

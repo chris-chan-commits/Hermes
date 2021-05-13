@@ -3,6 +3,7 @@
 #include "Core/Core.h"
 #include "Mesh.h"
 #include "Camera.h"
+#include "Light.h"
 
 namespace beye
 {
@@ -12,16 +13,19 @@ namespace beye
 	};
 
 	struct Mesh;
+	struct Light;
 
 	class BLIND_EYE_API Renderer
 	{
 	public:
 		static void Initialize(const API& api);
-		static void BeginRender(Ref<Camera> camera);
-		static void Render(const Ref<Mesh>& mesh);
+		static void BeginRender();
+		static void Render(const Ref<VertexArray>& array);
 		static void Resize(int width, int height);
 		static void CullFace();
 		static void NotCullFace();
+		static void EnableWireframe();
+		static void DisableWireframe();
 
 		static API GetAPI() { return s_API; }
 	private:

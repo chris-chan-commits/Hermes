@@ -9,25 +9,38 @@
 
 namespace beye
 {
+	enum class SPRITE
+	{
+		QUAD,
+		TRIANGLE,
+		CIRCLE
+	};
+	template <typename T>
+	struct BLIND_EYE_API MaterialSlot
+	{
+		std::string name;
+		T value;
+	};
+	struct BLIND_EYE_API Mat2D
+	{
+		MaterialSlot<glm::vec3> color;
+	};
 	struct BLIND_EYE_API Mesh
 	{
-	private:
-		friend class Renderer;
-		bool usesTexture = false;
-	public:
+		uint32_t meshID;
 		Ref<VertexArray> vao;
 		Ref<Shader> shader;
-		size_t points;
-		glm::mat4 model;
-		Ref<Texture> texture;
+		glm::mat4 transformation;
 
-		static Ref<Mesh> CreateMesh(const std::string& objFilename, Ref<Shader> shader, std::vector<float>& texCoords);
-		static Ref<Mesh> CreateMesh(const std::vector<float> vertices, Ref<Shader> shader);
-		static Ref<Mesh> CreateMesh(const std::vector<float> vertices, const std::vector<uint32_t> indices, Ref<Shader> shader);
+		static Ref<Mesh> Create2DMesh(const SPRITE& sprite, const Mat2D& mat);
+		static Ref<Mesh> Create3DMesh();
 
-		void BindTextureCoordinates(const std::vector<float> texCoords);
+		void BindMaterial(const Mat2D& mat);
+		void Render();
+	};
+	
+	struct Material
+	{
 
-		void BindTexture(Ref<Texture> texture, const std::vector<float> texCoords);
-		void BindTexture(Ref<Texture> texture);
 	};
 }

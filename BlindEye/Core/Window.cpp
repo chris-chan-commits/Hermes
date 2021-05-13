@@ -8,7 +8,7 @@ namespace beye
 	{
 		return glfwWindowShouldClose(m_WindowHandle);
 	}
-	void Win32Window::Initialize(int width, int height, const std::string& title)
+	void Win32Window::Initialize(int width, int height, const std::string& title, bool vsync)
 	{
 		if (!glfwInit())
 		{
@@ -34,6 +34,15 @@ namespace beye
 		glfwMakeContextCurrent(m_WindowHandle);
 
 		glfwShowWindow(m_WindowHandle);
+
+		if (vsync)
+		{
+			glfwSwapInterval(0);
+		}
+		else
+		{
+			glfwSwapInterval(1);
+		}
 	}
 
 	void Win32Window::Poll()

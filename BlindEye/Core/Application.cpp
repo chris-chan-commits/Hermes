@@ -1,5 +1,8 @@
 #include "Application.h"
 #include "BlindEyeIO.h"
+#include "Time/Time.h"
+
+namespace chrono = std::chrono;
 
 namespace beye
 {
@@ -11,6 +14,7 @@ namespace beye
 		int width = 0;
 		int height = 0;
 		std::string title = "";
+		bool vsync = false;
 
 		if (FileExists("engine.ini"))
 		{
@@ -19,6 +23,7 @@ namespace beye
 			bool foundWidth = false;
 			bool foundHeight = false;
 			bool foundTitle = false;
+			bool foundVsync = false;
 			while (std::getline(filecontents, line, '\n'))
 			{
 				if (line[0] == 'W')
@@ -39,9 +44,15 @@ namespace beye
 					title = line;
 					foundTitle = true;
 				}
+				if (line[0] == 'V')
+				{
+					line.erase(line.begin(), line.begin() + 6);
+					vsync = std::stoi(line);
+					foundVsync = true;
+				}
 			}
 
-			if (!foundWidth || !foundHeight || !foundTitle)
+			if (!foundWidth || !foundHeight || !foundTitle || !foundVsync)
 			{
 				BE_CORE_ERROR("Engine configuration file is not proper.");
 				BE_CORE_PAUSE();
@@ -57,7 +68,7 @@ namespace beye
 
 		#ifdef BE_PLATFORM_WINDOWS
 		m_Window = CreateRef<Win32Window>();
-		m_Window->Initialize(width, height, title);
+		m_Window->Initialize(width, height, title, vsync);
 		#endif
 	}
 
@@ -70,7 +81,8 @@ namespace beye
 		#ifdef BE_PLATFORM_WINDOWS
 		m_EventManager.PushEvent(new Win32WindowResizeEvent(m_Window));
 		#endif
-
+		m_EventManager.PushEvent(new TimeUpdateEvent());
+		
 		while (m_Running)
 		{
 			for (Layer* layer : m_LayerManager.GetLayers())

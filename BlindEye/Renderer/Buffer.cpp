@@ -7,13 +7,13 @@
 
 namespace beye
 {
-	Ref<VertexBuffer> VertexBuffer::CreateVertexBuffer(float* vertices, uint32_t size)
+	Ref<VertexBuffer> VertexBuffer::CreateVertexBuffer(float* vertices, GLsizeiptr size)
 	{
 		switch (Renderer::GetAPI())
 		{
 		case API::OPENGL:
 			{
-				return CreateRef<OGLVertexBuffer, float*, uint32_t>((float*)vertices, (uint32_t)size);
+				return CreateRef<OGLVertexBuffer, float*, GLsizeiptr>((float*)vertices, (GLsizeiptr)size);
 			}break;
 		default:
 			{

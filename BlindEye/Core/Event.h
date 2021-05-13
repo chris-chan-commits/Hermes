@@ -32,5 +32,17 @@ namespace beye
 		Ref<Win32Window> m_Window;
 	};
 	#endif
+
+	class BLIND_EYE_API TimeUpdateEvent : public Event
+	{
+	public:
+		TimeUpdateEvent();
+		virtual ~TimeUpdateEvent();
+
+		virtual void OnAttach() override;
+		virtual void OnDetach() override;
+		virtual void OnUpdate() override;
+
+	};
 }
 
