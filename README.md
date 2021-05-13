@@ -52,13 +52,14 @@ And the layer will look like this:
 The api can be only OpenGL because I have not made any other renderers.
 This is recommended to be called in OnAttach()
 ### How do I create a mesh?
-You need to create a camera, and then initialize the mesh and then if you want, bind a texture
+You need to create a camera, and then initialize the mesh with a material
 #
-    m_Camera = Camera::CreateOrthographicCamera(-1, 1, -1, 1);
-
-		m_Mesh = DefaultQuad();
-		m_Mesh->BindTexture(Texture::CreateTexture("brik.png"));
-And to render it, call Renderer::BeginRender(camera); and then Renderer::Render(mesh);
+		m_Camera = Camera::CreateOrthographicCamera(-1, 1, -1, 1);
+		Camera::SetActive(m_Camera);
+		
+		m_Mesh = Mesh::Create2DMesh(SPRITE::QUAD, { {"u_Color", glm::vec3(0.f, 0.5f, 1.f)} });
+	
+And to render it, call mesh->Render();
 ### How do I customize the width, height, and title?
 Create an engine.ini file, that contains the width, height, and title in this format...
 #
