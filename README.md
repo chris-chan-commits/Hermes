@@ -54,10 +54,11 @@ This is recommended to be called in OnAttach()
 ### How do I create a mesh?
 You need to create a camera, and then initialize the mesh with a material
 #
-		m_Camera = Camera::CreateOrthographicCamera(-1, 1, -1, 1);
-		Camera::SetActive(m_Camera);
-		
-		m_Mesh = Mesh::Create2DMesh(SPRITE::QUAD, { {"u_Color", glm::vec3(0.f, 0.5f, 1.f)} });
+	m_Camera = Camera::CreateOrthographicCamera(-1, 1, -1, 1);
+	Camera::SetActive(m_Camera);
+
+	m_Mesh = Mesh::Create2DMesh(SPRITE::QUAD, { {COLOR_SLOT, glm::vec3(0.f, 0.5f, 1.f)} });
+
 	
 And to render it, call mesh->Render();
 ### How do I customize the width, height, and title?
