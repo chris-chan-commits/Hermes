@@ -54,6 +54,19 @@ namespace beye
 			}break;
 		}
 	}
+	void Renderer::BackgroundColor(const glm::vec3& color)
+	{
+		switch (s_API)
+		{
+		case API::OPENGL: glClearColor(color.x, color.y, color.z, 1.0f); break;
+		default:
+			{
+				BE_CORE_ERROR("Failed to clear color! Reason: Only OpenGL is supported!");
+				BE_CORE_PAUSE();
+				std::exit(-1);
+			}break;
+		}
+	}
 	void Renderer::BeginRender()
 	{
 		switch (s_API)

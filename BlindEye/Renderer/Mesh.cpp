@@ -172,6 +172,14 @@ namespace beye
 	1, 2, 3    // second triangle
 		};
 
+		float textureCoordinates[4 * 2] =
+		{
+			-1.f, -1.f,
+			-1.f, 1.f,
+			1.f, 1.f,
+			1.f, -1.f,
+		};
+
 		Ref<VertexArray> vao = VertexArray::CreateVertexArray();
 		Ref<VertexBuffer> vbo = VertexBuffer::CreateVertexBuffer(vertices, 12 * sizeof(size_t));
 		Ref<IndexBuffer> ibo = IndexBuffer::CreateIndexBuffer(indices, 6 * sizeof(size_t));
@@ -184,9 +192,29 @@ namespace beye
 		vao->AddVertexBuffer(vbo);
 		vao->BindIndexBuffer(ibo);
 
+		
+
+		if (!mat.textureAlbedo) 
+		{
+			mesh->shader = Shader::CreateShader("main_shader_2d.shader");
+			mesh->shader->SetFloat3(mat.albedoColor.name, mat.albedoColor.value);
+			mesh->usesTextures = false;
+		}
+		else
+		{
+			mesh->shader = Shader::CreateShader("main_shader_2d_textured.shader");
+			Ref<VertexBuffer> uvBuffer = VertexBuffer::CreateVertexBuffer(textureCoordinates, (sizeof(textureCoordinates) / sizeof(&textureCoordinates[0])) * sizeof(size_t));
+			layout = {};
+			layout.index = 1;
+			layout.size = 2;
+			uvBuffer->SetLayout(layout);
+			vao->AddVertexBuffer(uvBuffer);
+			
+			mesh->texture = mat.textureAlbedo;
+			mesh->usesTextures = true;
+		}
+		
 		mesh->vao = vao;
-		mesh->shader = Shader::CreateShader("main_shader_2d.shader");
-		mesh->shader->SetFloat3(mat.color.name, mat.color.value);
 		mesh->transformation = glm::mat4(1.0f);
 		mesh->meshID = mesh_id;
 
@@ -202,7 +230,7 @@ namespace beye
 
 	void Mesh::BindMaterial(const Mat2D& mat)
 	{
-		shader->SetFloat3(mat.color.name, mat.color.value);
+		shader->SetFloat3(mat.albedoColor.name, mat.albedoColor.value);
 	}
 
 	/*MESH*/
@@ -215,9 +243,17 @@ namespace beye
 		shader->SetMat4("u_View", Camera::GetActive()->view);
 		shader->SetMat4("u_Model", transformation);
 
+		if (usesTextures)
+		{
+			texture->Bind();
+		}
 		shader->Bind();
 		Renderer::BeginRender();
 		Renderer::Render(vao);
+		if (usesTextures)
+		{
+			texture->Unbind();
+		}
 		shader->Unbind();
 	}
 }

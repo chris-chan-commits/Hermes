@@ -19,6 +19,7 @@ namespace beye
 	{
 	public:
 		static void Initialize(const API& api);
+		static void BackgroundColor(const glm::vec3& color);
 		static void BeginRender();
 		static void Render(const Ref<VertexArray>& array);
 		static void Resize(int width, int height);
