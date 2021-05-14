@@ -75,3 +75,8 @@ GLFW, GLEW, GLM
 
 # Currently
 Currently working on material system.
+
+# Guideline for writing shaders
+layout(location = 0) MUST BE position
+layout(location = 1) MUST BE uv coords
+layout(location = 2) MUST BE normals
