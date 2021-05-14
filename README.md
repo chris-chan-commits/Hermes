@@ -75,6 +75,7 @@ GLFW, GLEW, GLM
 
 # Currently
 Currently working on material system.
+Currently working on animation system.
 
 # Guideline for writing shaders
 layout(location = 0) MUST BE position
