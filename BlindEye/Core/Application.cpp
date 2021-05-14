@@ -94,6 +94,11 @@ namespace beye
 			{
 				event->OnUpdate();
 			}
+
+			for (Script* script : ScriptSystem::Get().GetScripts())
+			{
+				script->OnUpdate();
+			}
 			
 			if (m_Window->Closing())
 			{

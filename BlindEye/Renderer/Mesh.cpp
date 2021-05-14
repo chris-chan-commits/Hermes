@@ -154,10 +154,10 @@ namespace beye
 		}
 	}
 
-	Ref<Mesh> Mesh::Create2DMesh(const SPRITE& sprite, const Mat2D& mat)
+	Ref<Mesh2D> Mesh2D::Create2DMesh(const SPRITE& sprite, const Mat2D& mat, glm::mat4 startingTransform)
 	{
 		mesh_id++;
-		Ref<Mesh> mesh = CreateRef<Mesh>();
+		Ref<Mesh2D> mesh = CreateRef<Mesh2D>();
 		float vertices[4 * 3] =
 		{
 	 0.5f,  0.5f, 0.0f,  // top right
@@ -215,40 +215,32 @@ namespace beye
 		}
 		
 		mesh->vao = vao;
-		mesh->transformation = glm::mat4(1.0f);
+		mesh->transformation = startingTransform;
 		mesh->meshID = mesh_id;
 
 		return mesh;
 	}
 
-	Ref<Mesh> Mesh::Create3DMesh()
-	{
-		mesh_id++;
-
-		return nullptr;
-	}
-
-	void Mesh::BindMaterial(const Mat2D& mat)
+	void Mesh2D::BindMaterial(const Mat2D& mat)
 	{
 		shader->SetFloat3(mat.albedoColor.name, mat.albedoColor.value);
 	}
 
 	/*MESH*/
-	void Mesh::Render()
+	void Mesh2D::Render()
 	{
 		glm::mat4 proj = Camera::GetActive()->projection;
 		glm::mat4 view = Camera::GetActive()->view;
 
-		shader->SetMat4("u_Proj", Camera::GetActive()->projection);
-		shader->SetMat4("u_View", Camera::GetActive()->view);
-		shader->SetMat4("u_Model", transformation);
+		shader->SetMat4(PROJ_SLOT, proj);
+		shader->SetMat4(VIEW_SLOT, view);
+		shader->SetMat4(MODEL_SLOT, transformation);
 
+		shader->Bind();
 		if (usesTextures)
 		{
 			texture->Bind();
 		}
-		shader->Bind();
-		Renderer::BeginRender();
 		Renderer::Render(vao);
 		if (usesTextures)
 		{

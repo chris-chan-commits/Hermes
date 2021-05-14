@@ -91,9 +91,16 @@ namespace beye
 		{
 			glEnableVertexAttribArray(vb->GetLayout().index);
 		}
-		array->GetIndexBuffer()->Bind();
-		glDrawElements(GL_TRIANGLES, array->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, NULL);
-		array->GetIndexBuffer()->Unbind();
+		if (array->UsesIndexBuffers())
+		{
+			array->GetIndexBuffer()->Bind();
+			glDrawElements(GL_TRIANGLES, array->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, NULL);
+			array->GetIndexBuffer()->Unbind();
+		}
+		else
+		{
+			glDrawArrays(GL_TRIANGLES, 0, array->GetVertexBuffers()[0]->GetCount());
+		}
 		for (auto vb : array->GetVertexBuffers())
 		{
 			glDisableVertexAttribArray(vb->GetLayout().index);

@@ -17,7 +17,9 @@ namespace beye
 
 		virtual void Bind() override;
 		virtual void Unbind() override;
+		virtual int GetCount() override;
 	private:
+		int m_Count = 0;
 		uint32_t m_ID;
 	};
 }

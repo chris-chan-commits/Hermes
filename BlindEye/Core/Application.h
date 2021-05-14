@@ -5,6 +5,8 @@
 #include <thread>
 #include "LayerManager.h"
 #include "Window.h"
+#include "Scripting System\ScriptSystem.h"
+#include "Scripting System\Script.h"
 #include "EventManager.h"
 
 namespace beye

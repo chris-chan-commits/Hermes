@@ -22,6 +22,7 @@ namespace beye
 
 		virtual void SetLayout(const BufferLayout& layout) { m_Layout = layout; }
 		virtual const BufferLayout& GetLayout() { return m_Layout; }
+		virtual int GetCount() = 0 {}
 	private:
 		BufferLayout m_Layout;
 	};
