@@ -1,5 +1,6 @@
 #include "../Hermes/src/Hermes.h"
 #include "../Hermes/src/EntryPoint.h"
+#include "../Hermes/src/Renderer/Renderer.h"
 
 using namespace Hermes;
 
@@ -13,6 +14,7 @@ public:
 
 	virtual void OnAttach() override
 	{
+		Renderer.Initialize(RendererApi::OpenGL);
 	}
 
 	virtual void OnTick() override
