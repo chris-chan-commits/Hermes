@@ -14,7 +14,7 @@ public:
 
 	virtual void OnAttach() override
 	{
-		Renderer.Initialize(RendererApi::OpenGL);
+		
 	}
 
 	virtual void OnTick() override

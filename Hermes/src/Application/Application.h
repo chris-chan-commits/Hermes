@@ -8,7 +8,7 @@
 #include "Window/IWindow.h"
 
 namespace Hermes {
-	CLASS Application
+	class HERMES_API Application
 	{
 	public:
 		/*- Constructor -*/
@@ -22,7 +22,7 @@ namespace Hermes {
 		VOID PushExtension(Extension* extension);
 		VOID PopExtension(Extension* extension);
 	private:
-		VOID InitializeWindow();
+		VOID _InitializeWindow();
 	private:
 		IWindow* m_Window;
 		bool m_Running = TRUE;

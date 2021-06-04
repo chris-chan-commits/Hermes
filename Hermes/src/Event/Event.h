@@ -4,7 +4,7 @@
 #include "types.h"
 
 namespace Hermes {
-	INTERFACE Event
+	class HERMES_API Event
 	{
 	public:
 		Event(STRING name);
@@ -13,7 +13,7 @@ namespace Hermes {
 		virtual VOID OnEvent() = 0;
 	};
 
-	CLASS OnWindowResize : public Event
+	class HERMES_API OnWindowResize : public Event
 	{
 	public:
 		OnWindowResize();

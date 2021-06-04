@@ -1,6 +1,52 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(452,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(453,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(467,5): warning MSB8028: The intermediate directory (C:\Users\Opact\source\repos\Hermes\int/Win32/Debug\) contains files shared from another project (Blank Project.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Application.cpp
+C:\Users\Opact\source\repos\Hermes\Hermes\src\ExtensionManager\ExtensionManager.h(20,39): warning C4251: 'Hermes::ExtensionManager::m_Extensions': class 'std::vector<Hermes::Extension *,std::allocator<Hermes::Extension *>>' needs to have dll-interface to be used by clients of class 'Hermes::ExtensionManager'
+C:\Users\Opact\source\repos\Hermes\Hermes\src\ExtensionManager\ExtensionManager.h(18): message : see declaration of 'std::vector<Hermes::Extension *,std::allocator<Hermes::Extension *>>'
+  Context.cpp
+  EventHandler.cpp
+C:\Users\Opact\source\repos\Hermes\Hermes\src\EventHandler\EventHandler.h(18,31): warning C4251: 'Hermes::EventHandler::m_Events': class 'std::vector<Hermes::Event *,std::allocator<Hermes::Event *>>' needs to have dll-interface to be used by clients of class 'Hermes::EventHandler'
+C:\Users\Opact\source\repos\Hermes\Hermes\src\EventHandler\EventHandler.h(18): message : see declaration of 'std::vector<Hermes::Event *,std::allocator<Hermes::Event *>>'
+  Event.cpp
+  ExtensionManager.cpp
+C:\Users\Opact\source\repos\Hermes\Hermes\src\ExtensionManager\ExtensionManager.h(20,39): warning C4251: 'Hermes::ExtensionManager::m_Extensions': class 'std::vector<Hermes::Extension *,std::allocator<Hermes::Extension *>>' needs to have dll-interface to be used by clients of class 'Hermes::ExtensionManager'
+C:\Users\Opact\source\repos\Hermes\Hermes\src\ExtensionManager\ExtensionManager.h(18): message : see declaration of 'std::vector<Hermes::Extension *,std::allocator<Hermes::Extension *>>'
+  Extension.cpp
+  Logger.cpp
+  D3DContext.cpp
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\Context\Direct3D\D3DContext.h(26,48): warning C4251: 'Hermes::D3DContext::m_Device': class 'Microsoft::WRL::ComPtr<ID3D11Device>' needs to have dll-interface to be used by clients of class 'Hermes::D3DContext'
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\Context\Direct3D\D3DContext.h(26): message : see declaration of 'Microsoft::WRL::ComPtr<ID3D11Device>'
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\Context\Direct3D\D3DContext.h(27,62): warning C4251: 'Hermes::D3DContext::m_DeviceContext': class 'Microsoft::WRL::ComPtr<ID3D11DeviceContext>' needs to have dll-interface to be used by clients of class 'Hermes::D3DContext'
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\Context\Direct3D\D3DContext.h(27): message : see declaration of 'Microsoft::WRL::ComPtr<ID3D11DeviceContext>'
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\Context\Direct3D\D3DContext.h(28,53): warning C4251: 'Hermes::D3DContext::m_SwapChain': class 'Microsoft::WRL::ComPtr<IDXGISwapChain>' needs to have dll-interface to be used by clients of class 'Hermes::D3DContext'
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\Context\Direct3D\D3DContext.h(28): message : see declaration of 'Microsoft::WRL::ComPtr<IDXGISwapChain>'
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\Context\Direct3D\D3DContext.h(29,68): warning C4251: 'Hermes::D3DContext::m_RenderTargetView': class 'Microsoft::WRL::ComPtr<ID3D11RenderTargetView>' needs to have dll-interface to be used by clients of class 'Hermes::D3DContext'
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\Context\Direct3D\D3DContext.h(29): message : see declaration of 'Microsoft::WRL::ComPtr<ID3D11RenderTargetView>'
+  Windows32Window.cpp
   Renderer.cpp
-     Creating library C:\Users\Opact\source\repos\Hermes\bin/Win32/Debug\Hermes.lib and object C:\Users\Opact\source\repos\Hermes\bin/Win32/Debug\Hermes.exp
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\Context\Direct3D\D3DContext.h(26,48): warning C4251: 'Hermes::D3DContext::m_Device': class 'Microsoft::WRL::ComPtr<ID3D11Device>' needs to have dll-interface to be used by clients of class 'Hermes::D3DContext'
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\Context\Direct3D\D3DContext.h(26): message : see declaration of 'Microsoft::WRL::ComPtr<ID3D11Device>'
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\Context\Direct3D\D3DContext.h(27,62): warning C4251: 'Hermes::D3DContext::m_DeviceContext': class 'Microsoft::WRL::ComPtr<ID3D11DeviceContext>' needs to have dll-interface to be used by clients of class 'Hermes::D3DContext'
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\Context\Direct3D\D3DContext.h(27): message : see declaration of 'Microsoft::WRL::ComPtr<ID3D11DeviceContext>'
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\Context\Direct3D\D3DContext.h(28,53): warning C4251: 'Hermes::D3DContext::m_SwapChain': class 'Microsoft::WRL::ComPtr<IDXGISwapChain>' needs to have dll-interface to be used by clients of class 'Hermes::D3DContext'
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\Context\Direct3D\D3DContext.h(28): message : see declaration of 'Microsoft::WRL::ComPtr<IDXGISwapChain>'
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\Context\Direct3D\D3DContext.h(29,68): warning C4251: 'Hermes::D3DContext::m_RenderTargetView': class 'Microsoft::WRL::ComPtr<ID3D11RenderTargetView>' needs to have dll-interface to be used by clients of class 'Hermes::D3DContext'
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\Context\Direct3D\D3DContext.h(29): message : see declaration of 'Microsoft::WRL::ComPtr<ID3D11RenderTargetView>'
+  mat.cpp
+  vec.cpp
+  Generating Code...
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Vector\vec.cpp(19): warning C4172: returning address of local variable or temporary: left
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Vector\vec.cpp(26): warning C4172: returning address of local variable or temporary: left
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Vector\vec.cpp(33): warning C4172: returning address of local variable or temporary: left
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Vector\vec.cpp(40): warning C4172: returning address of local variable or temporary: left
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Vector\vec.cpp(47): warning C4172: returning address of local variable or temporary: left
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Vector\vec.cpp(54): warning C4172: returning address of local variable or temporary: left
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Vector\vec.cpp(61): warning C4172: returning address of local variable or temporary: left
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Vector\vec.cpp(68): warning C4172: returning address of local variable or temporary: left
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Vector\vec.cpp(77): warning C4172: returning address of local variable or temporary: left
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Vector\vec.cpp(86): warning C4172: returning address of local variable or temporary: left
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Vector\vec.cpp(95): warning C4172: returning address of local variable or temporary: left
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Vector\vec.cpp(104): warning C4172: returning address of local variable or temporary: left
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Vector\mat.cpp(55): warning C4172: returning address of local variable or temporary: result
   Hermes.vcxproj -> C:\Users\Opact\source\repos\Hermes\bin/Win32/Debug\Hermes.dll

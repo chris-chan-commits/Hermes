@@ -11,9 +11,6 @@ typedef int INT;
 typedef bool B00L;
 
 #include "Core.h"
-#define INTERFACE class HERMES_API
-#define CLASS class HERMES_API
-#define SINGLETON class HERMES_API
 
 #define FALSE 0
 #define TRUE 1

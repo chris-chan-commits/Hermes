@@ -4,7 +4,7 @@
 #include "types.h"
 
 namespace Hermes {
-	CLASS Logger
+	class HERMES_API Logger
 	{
 	public:
 		static void Trace(STRING message, ...);

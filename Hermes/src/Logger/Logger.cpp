@@ -7,7 +7,7 @@
 #include <Windows.h>
 #endif
 
-static void core_log(STRING prepend, STRING message, va_list args)
+static void _CoreLog(STRING prepend, STRING message, va_list args)
 {
 	vprintf(((std::string(prepend) +message) + "\n").c_str(), args);
 }
@@ -20,7 +20,7 @@ namespace Hermes {
 		#endif
 		va_list args;
 		va_start(args, message);
-		core_log("[Trace]: ", message, args);
+		_CoreLog("[Trace]: ", message, args);
 		va_end(args);
 		#ifdef HERMES_PLATFORM_WINDOWS
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 0);
@@ -34,7 +34,7 @@ namespace Hermes {
 		#endif
 		va_list args;
 		va_start(args, message);
-		core_log("[Info]: ", message, args);
+		_CoreLog("[Info]: ", message, args);
 		va_end(args);
 		#ifdef HERMES_PLATFORM_WINDOWS
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 0);
@@ -48,7 +48,7 @@ namespace Hermes {
 		#endif
 		va_list args;
 		va_start(args, message);
-		core_log("[Error]: ", message, args);
+		_CoreLog("[Error]: ", message, args);
 		va_end(args);
 		#ifdef HERMES_PLATFORM_WINDOWS
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 0);
@@ -62,7 +62,7 @@ namespace Hermes {
 		#endif
 		va_list args;
 		va_start(args, message);
-		core_log("[Fatal]: ", message, args);
+		_CoreLog("[Fatal]: ", message, args);
 		va_end(args);
 
 		// Wait for user input

@@ -6,7 +6,7 @@
 #include "types.h"
 
 namespace Hermes {
-	CLASS ExtensionManager 
+	class HERMES_API ExtensionManager 
 	{
 	public:
 		ExtensionManager() = default;

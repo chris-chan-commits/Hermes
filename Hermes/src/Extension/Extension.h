@@ -4,7 +4,7 @@
 #include "types.h"
 
 namespace Hermes {
-	CLASS Extension
+	class HERMES_API Extension
 	{
 	public:
 		/*- Constructor -*/

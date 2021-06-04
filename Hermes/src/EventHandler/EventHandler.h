@@ -5,7 +5,7 @@
 #include <vector>
 
 namespace Hermes {
-	CLASS EventHandler
+	class HERMES_API EventHandler
 	{
 	public:
 		EventHandler()=default;

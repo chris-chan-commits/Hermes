@@ -5,21 +5,23 @@
 #ifdef HERMES_PLATFORM_WINDOWS
 #include "Window/IWindow.h"
 
-#include <Windows.h>
+struct GLFWwindow;
 
 namespace Hermes {
-	CLASS Windows32Window : public IWindow
+	class HERMES_API Windows32Window : public IWindow
 	{
 	public:
-		virtual VOID Initialize(INT width, INT height, STRING title) override;
-		virtual VOID Update() override;
+		virtual void Initialize(INT width, INT height, STRING title, const RendererApi& api) override;
+		virtual void Update() override;
 
-		virtual B00L ShouldClose() override;
+		virtual bool ShouldClose() override;
 	private:
-		B00L m_Closing = FALSE;
+		bool m_Closing = FALSE;
 		INT m_Width, m_Height;
 		STRING m_Title;
-		HWND m_Handle;
+		GLFWwindow* m_Handle;
+	private:
+		void _InitForOpenGL();
 	};
 }
 #else
