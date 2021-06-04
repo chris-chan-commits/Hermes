@@ -9,6 +9,9 @@ namespace Hermes {
 	CLASS ExtensionManager 
 	{
 	public:
+		ExtensionManager() = default;
+		~ExtensionManager();
+
 		void PushExtension(Extension* ext);
 		void PopExtension(Extension* ext);
 

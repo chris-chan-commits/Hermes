@@ -153,6 +153,8 @@
     <ClInclude Include="src\Application\Application.h" />
     <ClInclude Include="src\Core.h" />
     <ClInclude Include="src\EntryPoint.h" />
+    <ClInclude Include="src\EventHandler\EventHandler.h" />
+    <ClInclude Include="src\Event\Event.h" />
     <ClInclude Include="src\ExtensionManager\ExtensionManager.h" />
     <ClInclude Include="src\Extension\Extension.h" />
     <ClInclude Include="src\Hermes.h" />
@@ -165,6 +167,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Application\Application.cpp" />
+    <ClCompile Include="src\EventHandler\EventHandler.cpp" />
+    <ClCompile Include="src\Event\Event.cpp" />
     <ClCompile Include="src\ExtensionManager\ExtensionManager.cpp" />
     <ClCompile Include="src\Extension\Extension.cpp" />
     <ClCompile Include="src\Logger\Logger.cpp" />

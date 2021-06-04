@@ -1,6 +1,16 @@
 #include "ExtensionManager.h"
 
 namespace Hermes {
+	ExtensionManager::~ExtensionManager()
+	{
+		for (Extension* extension : m_Extensions)
+		{
+			extension->OnDetach();
+
+			delete extension;
+		}
+	}
+
 	void ExtensionManager::PushExtension(Extension* ext)
 	{
 		ext->OnAttach();
