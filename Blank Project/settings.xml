@@ -1,0 +1,6 @@
+﻿<Settings>
+	<Width>1280</Width>
+	<Height>720</Height>
+	<Title>Blank Project</Title>
+	<Renderer>OPENGL_MODERN</Renderer>
+</Settings>
