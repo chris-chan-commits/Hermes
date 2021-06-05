@@ -84,7 +84,7 @@ namespace Hermes {
 		return b;
 	}
 
-	mat4 mat4::Translate(mat4& matrix, const vec3& translation)
+	mat4 mat4::Translate(const mat4& matrix, const vec3& translation)
 	{
 		mat4 result(matrix);
 		result.m[3][0] += translation.x;
@@ -94,7 +94,7 @@ namespace Hermes {
 		return result;
 	}
 
-	mat4 mat4::Rotate(mat4& matrix, const vec3& rotation)
+	mat4 mat4::Rotate(const mat4& matrix, const vec3& rotation)
 	{
 		mat4 result(matrix);
 
@@ -137,7 +137,7 @@ namespace Hermes {
 		return result;
 	}
 
-	mat4 mat4::ortho(float left, float right, float bottom, float top, float near, float far)
+	mat4 mat4::Orthographic(float left, float right, float bottom, float top, float near, float far)
 	{
 		float matrix[4][4] =
 		{

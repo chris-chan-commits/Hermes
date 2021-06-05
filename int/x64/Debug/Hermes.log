@@ -8,9 +8,13 @@ C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\RenderPlatform\OpenGL\OGL
 C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\RenderPlatform\OpenGL\OGLVertexArray.h(23,49): warning C4251: 'Hermes::OGLVertexArray::m_VertexBuffers': class 'std::vector<std::shared_ptr<Hermes::VertexBuffer>,std::allocator<std::shared_ptr<Hermes::VertexBuffer>>>' needs to have dll-interface to be used by clients of class 'Hermes::OGLVertexArray'
 C:\Users\Opact\source\repos\Hermes\Hermes\src\Renderer\Array\VertexArray.h(21): message : see declaration of 'std::vector<std::shared_ptr<Hermes::VertexBuffer>,std::allocator<std::shared_ptr<Hermes::VertexBuffer>>>'
   Renderer.cpp
+  Shader.cpp
   mat.cpp
   Generating Code...
-C:\Users\Opact\source\repos\Hermes\Hermes\src\Vector\mat.cpp(69): warning C4172: returning address of local variable or temporary: result
 C:\Users\Opact\source\repos\Hermes\Hermes\src\Vector\mat.cpp(55): warning C4172: returning address of local variable or temporary: result
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Vector\mat.cpp(69): warning C4172: returning address of local variable or temporary: result
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Renderer\Shader\Shader.cpp(21): warning C4715: 'Hermes::Shader::CreateShader': not all control paths return a value
   glad.c
+     Creating library C:\Users\Opact\source\repos\Hermes\bin/x64/Debug\Hermes.lib and object C:\Users\Opact\source\repos\Hermes\bin/x64/Debug\Hermes.exp
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   Hermes.vcxproj -> C:\Users\Opact\source\repos\Hermes\bin/x64/Debug\Hermes.dll

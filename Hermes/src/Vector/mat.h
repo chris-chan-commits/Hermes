@@ -24,9 +24,9 @@ namespace Hermes {
 
 		float* GetMatrix() const;
 
-		static mat4 Translate(mat4& matrix, const vec3& translation);
-		static mat4 Rotate(mat4& matrix, const vec3& rotation);
+		static mat4 Translate(const mat4& matrix, const vec3& translation);
+		static mat4 Rotate(const mat4& matrix, const vec3& rotation);
 
-		static mat4 ortho(float left, float right, float bottom, float top, float near, float far);
+		static mat4 Orthographic(float left, float right, float bottom, float top, float near, float far);
 	};
 }
