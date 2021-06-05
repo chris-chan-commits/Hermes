@@ -58,13 +58,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;HERMES_BUILD_DLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)src;$(SolutionDir)include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(SolutionDir)include;$(ProjectDir)src/vendor/glad/include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)libs;</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;glew32s.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -75,7 +75,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;HERMES_BUILD_DLL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)src;$(SolutionDir)include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(SolutionDir)include;$(ProjectDir)src/vendor/glad/include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -83,7 +83,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)libs;</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;glew32s.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -97,6 +97,7 @@
     <ClInclude Include="src\Hermes.h" />
     <ClInclude Include="src\Logger\Logger.h" />
     <ClInclude Include="src\Platform\RenderPlatform\OpenGL\OGLBuffer.h" />
+    <ClInclude Include="src\Platform\RenderPlatform\OpenGL\OGLShader.h" />
     <ClInclude Include="src\Platform\RenderPlatform\OpenGL\OGLVertexArray.h" />
     <ClInclude Include="src\Platform\Windows32Window.h" />
     <ClInclude Include="src\Renderer\Array\Buffer.h" />
@@ -106,6 +107,8 @@
     <ClInclude Include="src\types.h" />
     <ClInclude Include="src\Vector\mat.h" />
     <ClInclude Include="src\Vector\vec.h" />
+    <ClInclude Include="src\vendor\glad\include\glad\glad.h" />
+    <ClInclude Include="src\vendor\glad\include\KHR\khrplatform.h" />
     <ClInclude Include="src\Window\IWindow.h" />
   </ItemGroup>
   <ItemGroup>
@@ -116,11 +119,16 @@
     <ClCompile Include="src\Extension\Extension.cpp" />
     <ClCompile Include="src\Logger\Logger.cpp" />
     <ClCompile Include="src\Platform\RenderPlatform\OpenGL\OGLBuffer.cpp" />
+    <ClCompile Include="src\Platform\RenderPlatform\OpenGL\OGLShader.cpp" />
     <ClCompile Include="src\Platform\RenderPlatform\OpenGL\OGLVertexArray.cpp" />
     <ClCompile Include="src\Platform\Windows32Window.cpp" />
+    <ClCompile Include="src\Renderer\Array\Buffer.cpp" />
+    <ClCompile Include="src\Renderer\Array\VertexArray.cpp" />
     <ClCompile Include="src\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Renderer\Shader\Shader.cpp" />
     <ClCompile Include="src\Vector\mat.cpp" />
     <ClCompile Include="src\Vector\vec.cpp" />
+    <ClCompile Include="src\vendor\glad\src\glad.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

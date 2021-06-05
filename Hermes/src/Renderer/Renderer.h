@@ -14,9 +14,13 @@ namespace Hermes {
 	public:
 		static LowLevelRenderer& Get() { static LowLevelRenderer instance; return instance; }
 
-		void Initialize(const RendererApi& api);
+		inline RendererApi GetAPI() { return m_Api; }
 		
-		//void RenderVertexArray(VertexArray& array);
+		void Initialize(const RendererApi& api);
+
+		void BeginRender() const;
+		
+		void RenderVertexArray(const Ref<VertexArray>& array);
 	private:
 		RendererApi m_Api;
 	};

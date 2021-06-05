@@ -21,12 +21,17 @@ namespace Hermes {
 	void Application::Run()
 	{
 		_InitializeWindow();
-
 		LowLevelRenderer::Get().Initialize(RendererApi::OpenGL);
+
+		for (Extension* extension : m_ExtensionManager.GetExtensions())
+		{
+			extension->OnAttach();
+		}
 
 		while (m_Running)
 		{
-
+			LowLevelRenderer::Get().BeginRender();
+			
 			//TODO: Extension updates to be handled in the extension manager class
 			for (Extension* extension : m_ExtensionManager.GetExtensions())
 			{
@@ -40,14 +45,13 @@ namespace Hermes {
 			{
 				m_Running = FALSE;
 			}
-
 		}
 	}
 	void Application::_InitializeWindow()
 	{
 		#ifdef HERMES_PLATFORM_WINDOWS
 		m_Window = new Windows32Window;
-		m_Window->Initialize(1280, 720, "Hello hermes!", RendererApi::OpenGL);
+		m_Window->Initialize(1280, 720, "Hello Hermes!", RendererApi::OpenGL);
 		#endif
 	}
 	void Application::PushExtension(Extension* extension)

@@ -13,7 +13,6 @@ namespace Hermes {
 
 	void ExtensionManager::PushExtension(Extension* ext)
 	{
-		ext->OnAttach();
 		m_Extensions.push_back(ext);
 	}
 

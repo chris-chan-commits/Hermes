@@ -1,9 +1,6 @@
 #include "OGLVertexArray.h"
 
-#define GLEW_STATIC
-#include <gl\glew.h>
-
-
+#include <glad/glad.h>
 
 namespace Hermes
 {
@@ -27,22 +24,40 @@ namespace Hermes
 	}
 
 	void OGLVertexArray::AddVertexBuffer(Ref<VertexBuffer>& buffer)
-	{
-		Ref<OGLVertexBuffer> openglVertexBuffer = std::dynamic_pointer_cast<OGLVertexBuffer>(buffer);
-		
-		openglVertexBuffer->Bind();
-		const BufferLayout layout = openglVertexBuffer->GetLayout();
+	{	
+		buffer->Bind();
+		const BufferLayout layout = buffer->GetLayout();
 		glEnableVertexAttribArray(layout.index);
-		glVertexAttribPointer(layout.index, layout.size, GL_FLOAT, GL_FALSE, 0, NULL);
+
+		glVertexAttribPointer(layout.index, layout.size, GL_FLOAT, GL_FALSE, NULL, nullptr);
+
+		//glDrawArrays(GL_TRIANGLES, 0, buffer->GetLength());
+		
 		glDisableVertexAttribArray(layout.index);
-		openglVertexBuffer->Unbind();
+		buffer->Unbind();
 
 
-		m_VertexBuffers.push_back(openglVertexBuffer);
+		m_VertexBuffers.push_back(buffer);
 	}
 	
 	std::vector<Ref<VertexBuffer>> OGLVertexArray::GetVertexBuffers()
 	{
 		return m_VertexBuffers;
 	}
+
+	void OGLVertexArray::Render()
+	{
+		for(auto bufs : m_VertexBuffers)
+		{
+			glEnableVertexAttribArray(bufs->GetLayout().index);
+		}
+
+		glDrawArrays(GL_TRIANGLES, 0, m_VertexBuffers[0]->GetLength());
+		
+		for (auto bufs : m_VertexBuffers)
+		{
+			glDisableVertexAttribArray(bufs->GetLayout().index);
+		}
+	}
+
 }

@@ -17,6 +17,8 @@ namespace Hermes
 
 		virtual void AddVertexBuffer(Ref<VertexBuffer>& buffer) override;
 		virtual std::vector<Ref<VertexBuffer>> GetVertexBuffers() override;
+
+		virtual void Render() override;
 	private:
 		std::vector<Ref<VertexBuffer>> m_VertexBuffers;
 		uint32_t m_ID;

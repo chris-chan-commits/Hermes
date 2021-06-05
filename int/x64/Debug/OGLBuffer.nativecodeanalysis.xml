@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\RenderPlatform\OpenGL\</FILEPATH>
+      <FILENAME>OGLBuffer.h</FILENAME>
+      <LINE>22</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Hermes::OGLVertexBuffer::m_Layout' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Hermes::OGLVertexBuffer::{ctor}</FUNCTION>
+    <DECORATED>??0OGLVertexBuffer@Hermes@@QEAA@XZ</DECORATED>
+    <FUNCLINE>22</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Hermes::OGLVertexBuffer::m_Layout</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\RenderPlatform\OpenGL\</FILEPATH>
+      <FILENAME>OGLBuffer.h</FILENAME>
+      <LINE>22</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Hermes::OGLVertexBuffer::m_Length' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Hermes::OGLVertexBuffer::{ctor}</FUNCTION>
+    <DECORATED>??0OGLVertexBuffer@Hermes@@QEAA@XZ</DECORATED>
+    <FUNCLINE>22</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Hermes::OGLVertexBuffer::m_Length</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\RenderPlatform\OpenGL\</FILEPATH>
+      <FILENAME>OGLBuffer.h</FILENAME>
+      <LINE>22</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Hermes::OGLVertexBuffer::m_ID' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Hermes::OGLVertexBuffer::{ctor}</FUNCTION>
+    <DECORATED>??0OGLVertexBuffer@Hermes@@QEAA@XZ</DECORATED>
+    <FUNCLINE>22</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Hermes::OGLVertexBuffer::m_ID</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

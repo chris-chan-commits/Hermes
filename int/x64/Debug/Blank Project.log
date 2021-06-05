@@ -4,4 +4,7 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\
   main.cpp
 C:\Users\Opact\source\repos\Hermes\Hermes\src\ExtensionManager\ExtensionManager.h(20,39): warning C4251: 'Hermes::ExtensionManager::m_Extensions': class 'std::vector<Hermes::Extension *,std::allocator<Hermes::Extension *>>' needs to have dll-interface to be used by clients of class 'Hermes::ExtensionManager'
 C:\Users\Opact\source\repos\Hermes\Hermes\src\ExtensionManager\ExtensionManager.h(18): message : see declaration of 'std::vector<Hermes::Extension *,std::allocator<Hermes::Extension *>>'
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\RenderPlatform\OpenGL\OGLVertexArray.h(23,49): warning C4251: 'Hermes::OGLVertexArray::m_VertexBuffers': class 'std::vector<std::shared_ptr<Hermes::VertexBuffer>,std::allocator<std::shared_ptr<Hermes::VertexBuffer>>>' needs to have dll-interface to be used by clients of class 'Hermes::OGLVertexArray'
+C:\Users\Opact\source\repos\Hermes\Hermes\src\renderer\Array\VertexArray.h(21): message : see declaration of 'std::vector<std::shared_ptr<Hermes::VertexBuffer>,std::allocator<std::shared_ptr<Hermes::VertexBuffer>>>'
+C:\Users\Opact\source\repos\Hermes\Blank Project\main.cpp(43,1): warning C4305: 'argument': truncation from 'double' to 'float'
   Blank Project.vcxproj -> C:\Users\Opact\source\repos\Hermes\bin/x64/Debug\Blank Project.exe

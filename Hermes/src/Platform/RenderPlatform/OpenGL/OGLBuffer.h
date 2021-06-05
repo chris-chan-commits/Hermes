@@ -13,7 +13,10 @@ namespace Hermes
 		virtual void Unbind() override;
 
 		virtual BufferLayout GetLayout() override;
+
+		virtual uint32_t GetLength() override;
 	private:
+		uint32_t m_Length;
 		uint32_t m_ID;
 		BufferLayout m_Layout;
 	};

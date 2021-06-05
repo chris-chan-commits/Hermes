@@ -1,7 +1,6 @@
 #include "Renderer.h"
 
-#define GLEW_STATIC
-#include <gl\glew.h>
+#include <glad/glad.h>
 
 #include "Logger/Logger.h"
 
@@ -15,7 +14,7 @@ namespace Hermes
 		{
 			case RendererApi::OpenGL:
 				{
-					if (GLEW_OK != glewInit())
+					if (!gladLoadGL())
 					{
 						HERMES_FATAL("GLEW failed to initialize!");
 					}
@@ -30,4 +29,25 @@ namespace Hermes
 				}break;
 		}
 	}
+
+	void LowLevelRenderer::BeginRender() const
+	{
+		switch (m_Api)
+		{
+			case RendererApi::OpenGL:
+				{
+					glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+				}break;
+			default:
+				{
+
+				}break;
+		}
+	}
+
+	void LowLevelRenderer::RenderVertexArray(const Ref<VertexArray>& array)
+	{
+		array->Render();
+	}
+
 }

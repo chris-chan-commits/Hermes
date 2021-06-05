@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\</FILEPATH>
+      <FILENAME>Windows32Window.h</FILENAME>
+      <LINE>25</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Hermes::Windows32Window::m_Title' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Hermes::Windows32Window::{ctor}</FUNCTION>
+    <DECORATED>??0Windows32Window@Hermes@@QEAA@XZ</DECORATED>
+    <FUNCLINE>25</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Hermes::Windows32Window::m_Title</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\</FILEPATH>
+      <FILENAME>Windows32Window.h</FILENAME>
+      <LINE>25</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Hermes::Windows32Window::m_Handle' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Hermes::Windows32Window::{ctor}</FUNCTION>
+    <DECORATED>??0Windows32Window@Hermes@@QEAA@XZ</DECORATED>
+    <FUNCLINE>25</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Hermes::Windows32Window::m_Handle</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\</FILEPATH>
+      <FILENAME>Windows32Window.h</FILENAME>
+      <LINE>25</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Hermes::Windows32Window::m_Height' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Hermes::Windows32Window::{ctor}</FUNCTION>
+    <DECORATED>??0Windows32Window@Hermes@@QEAA@XZ</DECORATED>
+    <FUNCLINE>25</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Hermes::Windows32Window::m_Height</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\</FILEPATH>
+      <FILENAME>Windows32Window.h</FILENAME>
+      <LINE>25</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Hermes::Windows32Window::m_Width' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Hermes::Windows32Window::{ctor}</FUNCTION>
+    <DECORATED>??0Windows32Window@Hermes@@QEAA@XZ</DECORATED>
+    <FUNCLINE>25</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Hermes::Windows32Window::m_Width</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

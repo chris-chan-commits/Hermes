@@ -1,5 +1,13 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(452,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(453,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(467,5): warning MSB8028: The intermediate directory (C:\Users\Opact\source\repos\Hermes\int/x64/Debug\) contains files shared from another project (Blank Project.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  OGLBuffer.cpp
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\RenderPlatform\OpenGL\OGLBuffer.cpp(11,50): warning C4267: '=': conversion from 'size_t' to 'uint32_t', possible loss of data
+  OGLShader.cpp
+  OGLVertexArray.cpp
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\RenderPlatform\OpenGL\OGLVertexArray.h(23,49): warning C4251: 'Hermes::OGLVertexArray::m_VertexBuffers': class 'std::vector<std::shared_ptr<Hermes::VertexBuffer>,std::allocator<std::shared_ptr<Hermes::VertexBuffer>>>' needs to have dll-interface to be used by clients of class 'Hermes::OGLVertexArray'
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Renderer\Array\VertexArray.h(21): message : see declaration of 'std::vector<std::shared_ptr<Hermes::VertexBuffer>,std::allocator<std::shared_ptr<Hermes::VertexBuffer>>>'
   Renderer.cpp
+  Generating Code...
+  glad.c
   Hermes.vcxproj -> C:\Users\Opact\source\repos\Hermes\bin/x64/Debug\Hermes.dll
