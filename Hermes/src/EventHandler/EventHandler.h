@@ -11,8 +11,8 @@ namespace Hermes {
 		EventHandler()=default;
 		~EventHandler();
 	
-		VOID PushEvent(Event* event);
-		VOID PopEvent(Event* event);
+		void PushEvent(Event* event);
+		void PopEvent(Event* event);
 
 	private:
 		std::vector<Event*> m_Events;

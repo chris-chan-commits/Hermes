@@ -1,14 +1,18 @@
 #pragma once
 
 typedef const char* STRING;
-typedef char* STRINGBUFFER;
 typedef unsigned char BYTE;
 typedef unsigned short WORD;
 
+typedef unsigned long u64;
+typedef unsigned int u32;
+typedef unsigned short u16;
+typedef unsigned char u8;
+
 typedef float FLOAT;
-typedef void VOID;
 typedef int INT;
-typedef bool B00L;
+
+typedef void** NOTYPE;
 
 #include "Core.h"
 

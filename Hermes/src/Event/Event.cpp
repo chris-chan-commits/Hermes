@@ -20,7 +20,7 @@ namespace Hermes {
 	{
 	}
 
-	VOID OnWindowResize::OnEvent()
+	void OnWindowResize::OnEvent()
 	{
 
 	}

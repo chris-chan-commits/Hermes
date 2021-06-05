@@ -9,12 +9,12 @@ namespace Hermes {
 		}
 	}
 
-	VOID EventHandler::PushEvent(Event* event)
+	void EventHandler::PushEvent(Event* event)
 	{
 		m_Events.push_back(event);
 	}
 
-	VOID EventHandler::PopEvent(Event* event)
+	void EventHandler::PopEvent(Event* event)
 	{
 		m_Events.erase
 		(

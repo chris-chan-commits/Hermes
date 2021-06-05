@@ -10,7 +10,7 @@ namespace Hermes {
 		Event(STRING name);
 		virtual ~Event() = default;
 
-		virtual VOID OnEvent() = 0;
+		virtual void OnEvent() = 0;
 	};
 
 	class HERMES_API OnWindowResize : public Event
@@ -19,6 +19,6 @@ namespace Hermes {
 		OnWindowResize();
 		virtual ~OnWindowResize();
 
-		virtual VOID OnEvent() override;
+		virtual void OnEvent() override;
 	};
 }

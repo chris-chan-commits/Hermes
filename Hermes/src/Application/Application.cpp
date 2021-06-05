@@ -18,9 +18,11 @@ namespace Hermes {
 	{
 
 	}
-	VOID Application::Run()
+	void Application::Run()
 	{
 		_InitializeWindow();
+
+		LowLevelRenderer::Get().Initialize(RendererApi::OpenGL);
 
 		while (m_Running)
 		{
@@ -41,18 +43,18 @@ namespace Hermes {
 
 		}
 	}
-	VOID Application::_InitializeWindow()
+	void Application::_InitializeWindow()
 	{
 		#ifdef HERMES_PLATFORM_WINDOWS
 		m_Window = new Windows32Window;
 		m_Window->Initialize(1280, 720, "Hello hermes!", RendererApi::OpenGL);
 		#endif
 	}
-	VOID Application::PushExtension(Extension* extension)
+	void Application::PushExtension(Extension* extension)
 	{
 		m_ExtensionManager.PushExtension(extension);
 	}
-	VOID Application::PopExtension(Extension* extension)
+	void Application::PopExtension(Extension* extension)
 	{
 		m_ExtensionManager.PopExtension(extension);
 	}

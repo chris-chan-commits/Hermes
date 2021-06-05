@@ -12,8 +12,8 @@ namespace Hermes{
 		IWindow() = default;
 		virtual ~IWindow() = default;
 
-		virtual VOID Initialize(INT width, INT height, STRING title, const RendererApi& api) = 0;
-		virtual VOID Update() = 0;
-		virtual B00L ShouldClose() = 0;
+		virtual void Initialize(INT width, INT height, STRING title, const RendererApi& api) = 0;
+		virtual void Update() = 0;
+		virtual bool ShouldClose() = 0;
 	};
 }

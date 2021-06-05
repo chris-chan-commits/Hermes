@@ -17,12 +17,12 @@ namespace Hermes {
 		/*- Destructor -*/
 		~Application();
 
-		VOID Run();
+		void Run();
 
-		VOID PushExtension(Extension* extension);
-		VOID PopExtension(Extension* extension);
+		void PushExtension(Extension* extension);
+		void PopExtension(Extension* extension);
 	private:
-		VOID _InitializeWindow();
+		void _InitializeWindow();
 	private:
 		IWindow* m_Window;
 		bool m_Running = TRUE;

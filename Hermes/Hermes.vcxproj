@@ -96,8 +96,13 @@
     <ClInclude Include="src\Extension\Extension.h" />
     <ClInclude Include="src\Hermes.h" />
     <ClInclude Include="src\Logger\Logger.h" />
+    <ClInclude Include="src\Platform\RenderPlatform\OpenGL\OGLBuffer.h" />
+    <ClInclude Include="src\Platform\RenderPlatform\OpenGL\OGLVertexArray.h" />
     <ClInclude Include="src\Platform\Windows32Window.h" />
+    <ClInclude Include="src\Renderer\Array\Buffer.h" />
+    <ClInclude Include="src\Renderer\Array\VertexArray.h" />
     <ClInclude Include="src\Renderer\Renderer.h" />
+    <ClInclude Include="src\Renderer\Shader\Shader.h" />
     <ClInclude Include="src\types.h" />
     <ClInclude Include="src\Vector\mat.h" />
     <ClInclude Include="src\Vector\vec.h" />
@@ -110,6 +115,8 @@
     <ClCompile Include="src\ExtensionManager\ExtensionManager.cpp" />
     <ClCompile Include="src\Extension\Extension.cpp" />
     <ClCompile Include="src\Logger\Logger.cpp" />
+    <ClCompile Include="src\Platform\RenderPlatform\OpenGL\OGLBuffer.cpp" />
+    <ClCompile Include="src\Platform\RenderPlatform\OpenGL\OGLVertexArray.cpp" />
     <ClCompile Include="src\Platform\Windows32Window.cpp" />
     <ClCompile Include="src\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Vector\mat.cpp" />
