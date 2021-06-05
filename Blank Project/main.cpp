@@ -51,8 +51,7 @@ public:
 		shader->SetMat4("u_Projection", proj);
 		shader->SetMat4("u_Model", model);
 		shader->SetMat4("u_View", view);
-		model = mat4::Translate(model, vec3(0.01f, 0.0f, 0.0f));
-		
+		model = mat4::Rotate(model, vec3(0, 0, 0.01f));
 		LowLevelRenderer::Get().RenderVertexArray(array);
 		shader->Unbind();
 	}

@@ -84,13 +84,56 @@ namespace Hermes {
 		return b;
 	}
 
-	mat4 mat4::Translate(mat4& matrix, vec3 translation)
+	mat4 mat4::Translate(mat4& matrix, const vec3& translation)
 	{
 		mat4 result(matrix);
 		result.m[3][0] += translation.x;
 		result.m[3][1] += translation.y;
 		result.m[3][2] += translation.z;
 
+		return result;
+	}
+
+	mat4 mat4::Rotate(mat4& matrix, const vec3& rotation)
+	{
+		mat4 result(matrix);
+
+		mat4 xRot = mat4(
+			new float[4][4]
+			{
+				{1, 0, 0, 0},
+				{0, cos(rotation.x), -sin(rotation.x), 0},
+				{0, sin(rotation.x), cos(rotation.x), 0},
+				{0, 0, 0, 1}
+			}
+		);
+		mat4 yRot = mat4(
+			new float[4][4]
+			{
+				{cos(rotation.y), 0, sin(rotation.y), 0},
+				{0, 1, 0, 0},
+				{-sin(rotation.y), 0, cos(rotation.y), 0},
+				{0, 0, 0, 1}
+			}
+		);
+		mat4 zRot = mat4(
+			new float[4][4]
+			{
+				{cos(rotation.z), -sin(rotation.z), 0, 0},
+				{sin(rotation.z), cos(rotation.z), 0, 0},
+				{0, 0, 1, 0},
+				{0, 0, 0, 1}
+			}
+		);
+
+		mat4 rot(1.0f);
+
+		rot *= xRot;
+		rot *= yRot;
+		rot *= zRot;
+
+		result *= rot;
+		
 		return result;
 	}
 

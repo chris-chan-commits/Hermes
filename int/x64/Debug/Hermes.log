@@ -8,6 +8,9 @@ C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\RenderPlatform\OpenGL\OGL
 C:\Users\Opact\source\repos\Hermes\Hermes\src\Platform\RenderPlatform\OpenGL\OGLVertexArray.h(23,49): warning C4251: 'Hermes::OGLVertexArray::m_VertexBuffers': class 'std::vector<std::shared_ptr<Hermes::VertexBuffer>,std::allocator<std::shared_ptr<Hermes::VertexBuffer>>>' needs to have dll-interface to be used by clients of class 'Hermes::OGLVertexArray'
 C:\Users\Opact\source\repos\Hermes\Hermes\src\Renderer\Array\VertexArray.h(21): message : see declaration of 'std::vector<std::shared_ptr<Hermes::VertexBuffer>,std::allocator<std::shared_ptr<Hermes::VertexBuffer>>>'
   Renderer.cpp
+  mat.cpp
   Generating Code...
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Vector\mat.cpp(69): warning C4172: returning address of local variable or temporary: result
+C:\Users\Opact\source\repos\Hermes\Hermes\src\Vector\mat.cpp(55): warning C4172: returning address of local variable or temporary: result
   glad.c
   Hermes.vcxproj -> C:\Users\Opact\source\repos\Hermes\bin/x64/Debug\Hermes.dll
