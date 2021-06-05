@@ -52,7 +52,14 @@ namespace Hermes
 			glEnableVertexAttribArray(bufs->GetLayout().index);
 		}
 
-		glDrawArrays(GL_TRIANGLES, 0, m_VertexBuffers[0]->GetLength());
+		if(!m_UsesIndexBuffer)
+			glDrawArrays(GL_TRIANGLES, 0, m_VertexBuffers[0]->GetLength());
+		else
+		{
+			m_IndexBuffer->Bind();
+			glDrawElements(GL_TRIANGLES, m_IndexBuffer->GetLength(), GL_UNSIGNED_INT, nullptr);
+			m_IndexBuffer->Unbind();
+		}
 		
 		for (auto bufs : m_VertexBuffers)
 		{
@@ -60,4 +67,9 @@ namespace Hermes
 		}
 	}
 
+	void OGLVertexArray::BindIndexBuffer(Ref<IndexBuffer>& buffer)
+	{
+		m_IndexBuffer = buffer;
+		m_UsesIndexBuffer = true;
+	}
 }

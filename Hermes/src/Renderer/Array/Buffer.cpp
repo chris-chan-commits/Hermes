@@ -20,4 +20,19 @@ namespace Hermes
 				}break;
 		}
 	}
+
+	Ref<IndexBuffer> IndexBuffer::CreateIndexBuffer()
+	{
+		switch(LowLevelRenderer::Get().GetAPI())
+		{
+			case RendererApi::OpenGL:
+				{
+					return CreateRef<OGLIndexBuffer>();
+				}break;
+			default:
+				{
+
+				}break;
+		}
+	}
 }

@@ -19,7 +19,12 @@ namespace Hermes
 		virtual std::vector<Ref<VertexBuffer>> GetVertexBuffers() override;
 
 		virtual void Render() override;
+
+		virtual void BindIndexBuffer(Ref<IndexBuffer>& buffer) override;
 	private:
+		bool m_UsesIndexBuffer = false;
+		Ref<IndexBuffer> m_IndexBuffer;
+		
 		std::vector<Ref<VertexBuffer>> m_VertexBuffers;
 		uint32_t m_ID;
 	};

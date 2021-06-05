@@ -25,4 +25,19 @@ namespace Hermes
 
 		virtual BufferLayout GetLayout() = 0;
 	};
+
+	class HERMES_API IndexBuffer
+	{
+	public:
+		IndexBuffer() = default;
+		virtual ~IndexBuffer() = default;
+
+		static Ref<IndexBuffer> CreateIndexBuffer();
+
+		virtual void Initialize(uint32_t* data, size_t size) = 0;
+		virtual void Bind() = 0;
+		virtual void Unbind() = 0;
+
+		virtual uint32_t GetLength() = 0;
+	};
 }

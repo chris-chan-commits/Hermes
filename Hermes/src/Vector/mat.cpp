@@ -128,9 +128,9 @@ namespace Hermes {
 
 		mat4 rot(1.0f);
 
-		rot *= xRot;
-		rot *= yRot;
 		rot *= zRot;
+		rot *= yRot;
+		rot *= xRot;
 
 		result *= rot;
 		

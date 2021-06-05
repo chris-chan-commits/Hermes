@@ -21,5 +21,6 @@ namespace Hermes
 		virtual std::vector<Ref<VertexBuffer>> GetVertexBuffers() = 0;
 
 		virtual void Render() = 0;
+		virtual void BindIndexBuffer(Ref<IndexBuffer>& buffer) = 0;
 	};
 }
